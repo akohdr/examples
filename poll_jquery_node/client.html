@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Polling Server Time</title>
+        
+        <script src='/jquery'></script>
+        <script type='text/javascript'> 
+
+var isPoll = false;
+//(  // Outer brackets eval the function then apply the newly defined func i.e auto start polling
+function poll(){
+    setTimeout(function() {
+        $.ajax({ url: '/time',  // this must be in same domain as page (!)
+                type: 'GET',                       // GET or POST 
+            success: function(data) {
+                console.log('in AJAX handler data:'+data);
+                window.$('.myTime').html(data.time);
+            },
+            error: function(httpRequest, textStatus, errorThrown) { 
+                console.log("status=" + textStatus + ",error=" + errorThrown);
+            },
+            dataType: "json",  // default is XML
+            complete: isPoll ? poll : null
+            });
+    }, 1000 );  // timeout before calling with ajax
+    console.log('post polled()');
+    return 'POLLED';
+}
+//)();
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Client loaded</h1>
+        <p>The current server time is: 
+        <div class='myTime'><i>{click Start Polling to see time}</i></div></p>
+
+        <input type='button' onclick='isPoll = true; poll()' value='Start Pollng'/>
+        <input type='button' onclick="$('.myTime').html('hello')" value='Hello'/>
+        <input type='button' onclick='isPoll = false' value='Stop Pollng'/>
+    </body>
+</html>
+
+
