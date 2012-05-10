@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>WebSocket Client</title>
+    </head>
+    <body>
+        <div class='bodyDiv'>Connecting to Server....</div>
+        <script src='jquery.min.js'></script>
+        <script>
+            exports = {} // holder for dual ctx code
+            var socket = new WebSocket("ws://vm-srvr:7777");
+            socket.onopen = function() {
+                console.log('Socket has been opened.');
+            }
+
+            socket.onmessage = function(msg) {
+               console.log('onmessage: ' + msg.data);
+               cmd = JSON.parse(msg.data);
+               //console.log('cmd: '+JSON.stringify(cmd));
+               if (cmd){
+                    if(cmd.js) {
+                        eval(cmd.js); // THIS IS VERY BAD! only for dev 
+                    }
+                    if(cmd.html) {
+                        $('body').html(cmd.html);
+                    }
+               }
+            }
+        </script>
+        <script src='taglib.js'></script>
+    </body>
+</html>
+
