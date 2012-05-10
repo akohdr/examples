@@ -1,3 +1,6 @@
+# Copyright (c) 2012 Andrew Wild (akohdr@gmail.com)
+# Licensed under the MIT (MIT-LICENSE.txt) licence.
+
 # Crafted to minimize dependencies allowing code to be shared in client context
 # native impls are avoided to allow codebase to be injected into client through websocket
 
