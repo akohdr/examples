@@ -1,0 +1,25 @@
+# Copyright (c) 2011 Andrew Wild (akohdr@gmail.com)
+# Licensed under the MIT (MIT-LICENSE.txt) licence.
+
+Stumbled on OpenCL patch in Quartz Composer one day
+
+What else could a geek do but build massive parallel version of Conway life :)
+Then obviously you have to feed it a 'Golly' pattern, enjoy......
+
+qtz files are binary unfortunatley, at time of posting this uses:
+
+OSX v10.6.8 (Snow Leopard)
+Quartz Composer v4.0 (103.1)
+
+Quartz Composer is/was part of XCode dev tools suite, if it's installed the .qtz association should bring up composer from Finder.
+
+To see simulation run click 'Viewer' button top right of workspace.
+
+To see Shader/OpenCL code highlight 'OpenCL Life Reduced' patch then 'Setting' pane in 'Patch Inspector'
+
+
+WARNING: this stuff runs up there with Kernel/Hardware tinkering with this stuff is the only time I think I managed to bring down OSX
+=======
+
+
+
