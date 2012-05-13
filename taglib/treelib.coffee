@@ -35,7 +35,8 @@ exports.treeClient = -> {
         (c) -> a(c, s[c])
         
     scopy: (s) -> (ps) => # fat arrow
-        r = {}; v = @copy(s, r)
+        r = if @isArray(s) then [] else {}
+        v = @copy(s, r)
         v(c) for c in ps; r
         
     sclone: (s) ->
