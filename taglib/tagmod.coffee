@@ -1,5 +1,6 @@
 #{tagClient} = require 'taglib.js'
 {tagClient} = require 'taglib.coffee'
+{treeClient} = require 'treelib.coffee'
 
 # PUBLIC API collection of tag functions
 exports.tag = {
@@ -26,8 +27,9 @@ exports.vids = {
 #tagClient.vid = exports.vids.good_parts_js #TODO remove
 
 exports.tagClient = tagClient
+exports.treeClient = treeClient
 
 # Aliases used in REPL
 global.tag = exports.tag
-
+global.tree = exports.tree
 
